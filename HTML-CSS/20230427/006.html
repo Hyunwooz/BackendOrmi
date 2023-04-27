@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>선택자</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        /*border: 5px solid blueviolet;
+        padding: 20px;*/
+      }
+
+      p {
+        color: red;
+      }
+
+      #hello {
+        border: 1px solid royalblue;
+      }
+
+      .hi {
+        background-color: yellowgreen;
+      }
+
+      h1.hi {
+        color: navy;
+      }
+
+      [id="text"] {
+        border: 1px solid red;
+      }
+      input[type="email"],
+      input[type="text"],
+      input[type="url"] {
+        border: 1px solid blue;
+      }
+
+      input[type="check"] {
+        margin-right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1 class="hi">Hello</h1>
+      <p>Hello</p>
+      <p class="hi">Hello</p>
+      <button type="button">Hello</button>
+
+      <br />
+      <label for="text">text</label>
+      <input type="text" id="text" />
+
+      <br />
+      <label for="email">email</label>
+      <input type="email" id="email" />
+    </div>
+  </body>
+</html>
