@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>login</title>
+    <link rel="stylesheet" href="./css/form.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="title">회원가입</h1>
+      <p class="description">원활한 서비스 이용을 위해 회원가입을 해주세요.</p>
+      <form method="post">
+        <div>
+          <label class="label-width" for="user-id">아이디</label>
+          <input id="user-id" name="userId" type="text" required />
+        </div>
+        <div>
+          <label class="label-width" for="user-email">이메일</label>
+          <input id="user-email" name="userEmail" type="email" required />
+        </div>
+
+        <div>
+          <label class="label-width" for="user-password">비밀번호</label>
+          <input
+            id="user-password"
+            name="userPassword"
+            type="password"
+            required
+          />
+        </div>
+        <div>
+          <label class="label-width" for="user-nickname">닉네임</label>
+          <input id="user-nickname" name="userNickname" type="text" required />
+        </div>
+
+        <div>
+          <label class="label-width" for="user-gender">성별</label>
+          <div class="genderContainer">
+            <input id="user-gender" name="userGender" type="radio" required />
+            남성
+            <input id="user-gender" name="userGender" type="radio" required />
+            여성
+            <input id="user-gender" name="userGender" type="radio" required />
+            선택 안함
+          </div>
+        </div>
+        <div class="techContainerBox">
+          <label class="label-width" for="user-tech">사용 기술</label>
+          <div class="techContainer">
+            <input
+              id="user-tech"
+              name="userTech"
+              type="checkbox"
+              required
+            />HTML
+            <input id="user-tech" name="userTech" type="checkbox" required />CSS
+            <input
+              id="user-tech"
+              name="userTech"
+              type="checkbox"
+              required
+            />JavaScript
+            <input
+              id="user-tech"
+              name="userTech"
+              type="checkbox"
+              required
+            />Python
+            <input
+              id="user-tech"
+              name="userTech"
+              type="checkbox"
+              required
+            />Django
+            <input
+              id="user-tech"
+              name="userTech"
+              type="checkbox"
+              required
+            />GitHub
+            <input
+              id="user-tech"
+              name="userTech"
+              type="checkbox"
+              required
+            />PostgreSQL
+          </div>
+        </div>
+
+        <button class="submit_btn" type="submit">회원가입</button>
+      </form>
+    </div>
+  </body>
+</html>
