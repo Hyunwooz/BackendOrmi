@@ -1,11 +1,70 @@
 body,
 h1,
-p {
+h2,
+p,
+ul,
+fieldset {
   margin: 0;
+  padding: 0;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* layout */
+body {
+  min-width: 1000px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex-grow: 1;
+  width: 1000px;
+  margin: auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  height: 80px;
+  border-bottom: 1px solid #ddd;
+}
+
+.header h1 a {
+  color: black;
+}
+
+.header-click a,
+.header-click button {
+  padding: 10px 15px;
+  margin-left: 10px;
+  color: black;
+  text-decoration: none;
+}
+
+.header-click button {
+  font: inherit;
+  border: none;
+  background: none;
+}
+
+.footer {
+  background-color: #eee;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 80px;
+}
+
+/* login */
+
 .container {
-  width: 360px;
+  width: 400px;
   margin: 40px auto;
 }
 
@@ -16,7 +75,7 @@ p {
 .description {
   margin: 20px 0;
 }
-form > div {
+.login > div {
   margin-bottom: 10px;
   display: flex;
   align-items: center;
@@ -27,7 +86,9 @@ form > div {
 }
 
 [type="text"],
-[type="password"] {
+[type="password"],
+[type="email"],
+select {
   width: 290px;
   height: 32px;
   border: 1px solid #ccc;
@@ -52,4 +113,173 @@ form > div {
 .submit_btn:active {
   border: 0;
   margin-top: 23px;
+}
+
+/* 회원가입 */
+
+.field {
+  border: 0;
+  margin: 20px 0;
+}
+
+.field ul {
+  list-style: none;
+  /* flex 활용하기 */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+}
+
+.field ul li {
+  /* 1.가로배치 */
+  /* display: inline; */
+}
+
+.field legend {
+  float: left;
+  width: 70px;
+}
+
+/* list */
+
+.table.list {
+  text-align: center;
+}
+
+.table {
+  /* cell 사이 간격 삭제 */
+  border-spacing: 0;
+  border-top: 2px solid black;
+  border-bottom: 1px solid #ddd;
+  width: 1000px;
+  margin: auto;
+  /* 테두리 중첩 */
+  border-collapse: collapse;
+  /* 테이블 레이아웃 고정 */
+  table-layout: fixed;
+}
+/* 
+.table th,
+.table td {
+  border: 1px solid #ddd;
+} */
+
+.table th {
+  background-color: #eee;
+  padding: 8px;
+}
+
+.table td {
+  padding: 10px;
+  border-top: 1px solid #ddd;
+}
+
+.table td.nodata {
+  padding: 40px;
+}
+
+.table a {
+  display: block;
+  text-align: left;
+  padding: 8px 0;
+  font-weight: bold;
+
+  /* 말줄임 처리 */
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* main 내부 컨텐츠 */
+
+.main-title {
+  margin: 40px 0 20px;
+}
+.main-desc {
+  margin-bottom: 20px;
+}
+
+.main-desc strong {
+  color: royalblue;
+}
+
+.btn-group {
+  text-align: right;
+  margin-top: 20px;
+}
+.btn {
+  background-color: #eee;
+  width: 80px;
+  height: 32px;
+  border: 1px solid #ccc7c7b6;
+  font-weight: bold;
+  border-radius: 4px;
+  /* 1번 */
+  /* display: inline-block; 
+  text-align: center; 
+  line-height: 32px;*/
+  /* 2번 */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  font: inherit;
+}
+
+/* 게시물 작성 */
+
+.write-table.list {
+  text-align: center;
+}
+
+.write-table {
+  /* cell 사이 간격 삭제 */
+  border-spacing: 0;
+  border-top: 4px solid rgb(83, 80, 80);
+  border-bottom: 1px solid #ddd;
+  width: 1000px;
+  margin: auto;
+  /* 테두리 중첩 */
+  border-collapse: collapse;
+  /* 테이블 레이아웃 고정 */
+  table-layout: fixed;
+}
+
+.write-table td:nth-child(1) {
+  background-color: #f1f1f1;
+  font-weight: bold;
+}
+
+.write-table td:nth-child(2) {
+  text-align: left;
+  padding: 10px;
+}
+
+.write-table [type="text"] {
+  box-sizing: border-box;
+  height: 28px;
+  width: 100%;
+}
+
+.write-table textarea {
+  box-sizing: border-box;
+  width: 100%;
+  height: 500px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: none;
+}
+
+.write-table td {
+  border-bottom: 2px solid #e2dedea4;
+}
+
+.write-table select {
+  height: 28px;
+  width: 180px;
+}
+
+.main-desc.board-write {
+  margin-bottom: 20px;
+  color: #7e7e7e;
 }
