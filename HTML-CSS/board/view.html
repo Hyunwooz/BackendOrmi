@@ -6,12 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BackendOrmi</title>
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/view.css" />
   </head>
   <body>
     <!-- header -->
     <div class="header">
       <h1><a href="index.html">HTML/CSS 실습</a></h1>
       <div class="header-click">
+        <a href="chat.html">채팅</a>
         <a href="login.html">로그인</a>
         <a href="join.html">회원가입</a>
         <button type="button">로그아웃</button>
@@ -19,23 +21,23 @@
     </div>
     <!-- // header -->
     <div class="main">
-      <h1>글 조회</h1>
-      <div>
-        <h2>이스트소프트 백엔드 개발 오르미 1기 모집</h2>
-        <div>
+      <h2 class="main-title">글 조회</h2>
+      <div class="title-box">
+        <p class="article-title">이스트소프트 백엔드 개발 오르미 1기 모집</p>
+        <div class="owner-info">
           <p>작성자: 홍길동</p>
           <p>작성일: 2023.04.24</p>
           <p>조회수: 1020</p>
         </div>
       </div>
 
-      <div>
-        <div>
+      <div class="article-content">
+        <div class="article-img-box">
           <img src="./img/est.jpg" alt="EST" />
           <p><strong>이스트 소프트 백엔드 개발 오르미 1기</strong> 모집</p>
         </div>
 
-        <div>
+        <div class="article-text">
           <h3>오르미란?</h3>
           <p>
             이스트 소프트 백엔드 개발자 부트캠프 참여자를 일컫는 말입니다<br />
@@ -45,9 +47,6 @@
             이스트소프트와 함께 백엔드 개발이란 오름⛰을 넘어 정상에 함께 올라
             보시죠!
           </p>
-        </div>
-
-        <div>
           <h3>이런 분이 함께해요</h3>
           <ul>
             <li>비전공자이지만 백엔드 개발자가 되고 싶은 사람</li>
@@ -55,9 +54,6 @@
             <li>전공자이지만 실무와 관련된 프로젝트를 경험하고 싶은 사람</li>
             <li>이스트소프트와 함께 백엔드 개발 커리어를 쌓고 싶은 사람</li>
           </ul>
-        </div>
-
-        <div>
           <h3>선정 과정</h3>
           <ol>
             <li>서류 접수</li>
@@ -75,7 +71,7 @@
       </div>
     </div>
     <!-- footer -->
-    <p class="footer">Copyright 2023. **강현우** All rights reserved.</p>
+    <p class="footer">Copyright 2023. 강현우 All rights reserved.</p>
     <!-- // footer -->
   </body>
 </html>

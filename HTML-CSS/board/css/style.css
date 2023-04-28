@@ -130,10 +130,10 @@ select {
   gap: 8px 10px;
 }
 
-.field ul li {
-  /* 1.가로배치 */
-  /* display: inline; */
-}
+/* .field ul li {
+  1.가로배치
+  display: inline;
+} */
 
 .field legend {
   float: left;
@@ -271,7 +271,7 @@ select {
 }
 
 .write-table td {
-  border-bottom: 2px solid #e2dedea4;
+  border-bottom: 1px solid #e2dedea4;
 }
 
 .write-table select {
