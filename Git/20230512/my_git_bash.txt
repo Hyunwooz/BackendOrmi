@@ -1,0 +1,59 @@
+Hyunwoo@DESKTOP-5VCUEPF MINGW64 ~/Desktop/ORMI/hello-gitHub (master)
+$ echo "# hello-gitHub" >> README.md
+git branch -M main
+git remote add origin https://github.com/Hyunwooz/hello-gitHub.git
+git push -u origin main
+Hyunwoo@DESKTOP-5VCUEPF MINGW64 ~/Desktop/ORMI/hello-gitHub (master)
+$ git init
+Initialized empty Git repository in C:/Users/Hyunwoo/Desktop/ORMI/hello-gitHub/.git/
+
+Hyunwoo@DESKTOP-5VCUEPF MINGW64 ~/Desktop/ORMI/hello-gitHub (master)
+$ git add README.md
+warning: LF will be replaced by CRLF in README.md.
+The file will have its original line endings in your working directory
+
+Hyunwoo@DESKTOP-5VCUEPF MINGW64 ~/Desktop/ORMI/hello-gitHub (master)
+$ git commit -m "first commit"
+[master (root-commit) 5f6535d] first commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md
+
+Hyunwoo@DESKTOP-5VCUEPF MINGW64 ~/Desktop/ORMI/hello-gitHub (master)
+$ git branch -M main
+
+Hyunwoo@DESKTOP-5VCUEPF MINGW64 ~/Desktop/ORMI/hello-gitHub (main)
+$ git remote add origin https://github.com/Hyunwooz/hello-gitHub.git
+
+Hyunwoo@DESKTOP-5VCUEPF MINGW64 ~/Desktop/ORMI/hello-gitHub (main)
+$ git push -u origin main
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 241 bytes | 241.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/Hyunwooz/hello-gitHub.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
+
+Hyunwoo@DESKTOP-5VCUEPF MINGW64 ~/Desktop/ORMI/hello-gitHub (main)
+$ git pull
+Already up to date.
+
+Hyunwoo@DESKTOP-5VCUEPF MINGW64 ~/Desktop/ORMI/hello-gitHub (main)
+$ git add .
+
+Hyunwoo@DESKTOP-5VCUEPF MINGW64 ~/Desktop/ORMI/hello-gitHub (main)
+$ git commit -m 'one'
+[main 86a90e1] one
+ 1 file changed, 1 insertion(+)
+ create mode 100644 text.txt
+
+Hyunwoo@DESKTOP-5VCUEPF MINGW64 ~/Desktop/ORMI/hello-gitHub (main)
+$ git push
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 20 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 290 bytes | 290.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/Hyunwooz/hello-gitHub.git
+   5f6535d..86a90e1  main -> main

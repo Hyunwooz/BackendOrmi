@@ -1,0 +1,131 @@
+paullab@DESKTOP-41F12GK MINGW64 ~/Desktop/test/git-test (main)
+$ git commit -m 'one'
+[main (root-commit) d0b80a7] one
+ 5 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 001.py
+ create mode 100644 002.py
+ create mode 100644 hello
+ create mode 100644 hello.txt
+ create mode 100644 test.html
+
+paullab@DESKTOP-41F12GK MINGW64 ~/Desktop/test/git-test (main)
+$ git status
+On branch main
+nothing to commit, working tree clean
+
+paullab@DESKTOP-41F12GK MINGW64 ~/Desktop/test/git-test (main)
+$ git diff
+
+paullab@DESKTOP-41F12GK MINGW64 ~/Desktop/test/git-test (main)
+$ git diff
+diff --git a/hello.txt b/hello.txt
+index e69de29..b6fc4c6 100644
+--- a/hello.txt
++++ b/hello.txt
+@@ -0,0 +1 @@
++hello
+\ No newline at end of file
+
+paullab@DESKTOP-41F12GK MINGW64 ~/Desktop/test/git-test (main)
+$ git add .
+
+paullab@DESKTOP-41F12GK MINGW64 ~/Desktop/test/git-test (main)
+$ git commit -m two
+[main aeadc24] two
+ 1 file changed, 1 insertion(+)
+
+paullab@DESKTOP-41F12GK MINGW64 ~/Desktop/test/git-test (main)
+$ git diff
+
+paullab@DESKTOP-41F12GK MINGW64 ~/Desktop/test/git-test (main)
+$ git log
+commit aeadc24c0b2ee8f272c6e855a25cede6c888d50d (HEAD -> main)
+Author: paullabkorea <paullabkorea@gmail.com>
+Date:   Fri May 12 14:21:08 2023 +0900
+
+    two
+
+commit d0b80a7eaf43816a4b3ca8d53d2e637bbc6343ff
+Author: paullabkorea <paullabkorea@gmail.com>
+Date:   Fri May 12 14:17:07 2023 +0900
+
+    one
+
+paullab@DESKTOP-41F12GK MINGW64 ~/Desktop/test/git-test (main)
+$ touch .gitignore
+
+paullab@DESKTOP-41F12GK MINGW64 ~/Desktop/test/git-test (main)
+$ echo "# finaltest"
+# finaltest
+
+paullab@DESKTOP-41F12GK MINGW64 ~/Desktop/test/git-test (main)
+$ echo "# finaltest"
+# finaltest
+
+paullab@DESKTOP-41F12GK MINGW64 ~/Desktop/test/git-test (main)
+$ echo "# finaltest"
+# finaltest
+
+paullab@DESKTOP-41F12GK MINGW64 ~/Desktop/test/git-test (main)
+$ echo "# finaltest"
+# finaltest
+
+paullab@DESKTOP-41F12GK MINGW64 ~/Desktop/test/git-test (main)
+$ echo "# finaltest"
+# finaltest
+
+paullab@DESKTOP-41F12GK MINGW64 ~/Desktop/test/git-test (main)
+$ echo "# finaltest" >> testtest.txt
+
+paullab@DESKTOP-41F12GK MINGW64 ~/Desktop/test/git-test (main)
+$ echo "# finaltest" >> README.md
+
+paullab@DESKTOP-41F12GK MINGW64 ~/Desktop/test/git-test (main)
+$ git add README.md
+warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it
+
+paullab@DESKTOP-41F12GK MINGW64 ~/Desktop/test/git-test (main)
+$ git status
+On branch main
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   README.md
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .gitignore
+        testtest.txt
+
+
+paullab@DESKTOP-41F12GK MINGW64 ~/Desktop/test/git-test (main)
+$ git add .
+warning: in the working copy of 'testtest.txt', LF will be replaced by CRLF the next time Git touches it
+
+paullab@DESKTOP-41F12GK MINGW64 ~/Desktop/test/git-test (main)
+$ git commit -m "first commit"
+[main a204347] first commit
+ 3 files changed, 177 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 README.md
+ create mode 100644 testtest.txt
+
+paullab@DESKTOP-41F12GK MINGW64 ~/Desktop/test/git-test (main)
+$ git branch -M main
+
+paullab@DESKTOP-41F12GK MINGW64 ~/Desktop/test/git-test (main)
+$ git remote add origin https://github.com/paullabkorea/finaltest.git
+
+paullab@DESKTOP-41F12GK MINGW64 ~/Desktop/test/git-test (main)
+$ git push -u origin main
+Enumerating objects: 10, done.
+Counting objects: 100% (10/10), done.
+Delta compression using up to 32 threads
+Compressing objects: 100% (7/7), done.
+Writing objects: 100% (10/10), 2.33 KiB | 1.17 MiB/s, done.
+Total 10 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), done.
+To https://github.com/paullabkorea/finaltest.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
+
+paullab@DESKTOP-41F12GK MINGW64 ~/Desktop/test/git-test (main)
