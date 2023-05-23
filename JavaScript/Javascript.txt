@@ -1,0 +1,28 @@
+JavaScript - JAVA랑 전혀 관련이 없습니다. LiveScript에서 이름 바꾼겁니다.
+
+ECMA Script - 표준
+
+JavaScript Runtime - Browser, Node, Deno
+
+Node - JavaScript 실행환경(runtime), JavaScript로 백엔드, 시스템, 게임개발 등을 할 수 있게 되었음
+
+바벨 - 폴리필, 트랜스파일러 : 모던 자바스크립트 코드를 구 표준을 준수하는 코드로 바꿔줍니다.(하위호환)
+
+npm : 앱 스토어(python에서는 pip을 사용)
+  - 카카오톡 같은 유명한 서비스 React(프론트엔드 개발), Express(백엔드 개발)
+
+Webpack - 
+
+<!doctype html><html lang="ko-KR"><head><meta charset="UTF-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width,initial-scale=1"/><link href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css" rel="stylesheet"/><link rel="shortcut icon" href="../src/assets/favicon.svg"/><meta property="description" content="지역 기반 개발 스터디 그룹 모집, 생성, 네트워크 웹/앱 서비스"/><meta property="keywords" content="스터디인, 위니브, 제주코딩베이스캠프, 지역 기반, 오프라인 스터디, 온라인 스터디, 개발자 커뮤니티, 개발자 스터디 studyin, weniv, jejucodingbasecamp"/><meta name="theme-color" content="#2e6ff2"/><link rel="apple-touch-icon" href="./icon/logo192.png"/><meta property="og:type" content="website"/><meta property="og:title" content="스터디인"/><meta property="og:description" content="지역 기반 개발 스터디 그룹 모집, 생성, 네트워크 웹/앱 서비스"/><meta property="og:image" content="https://www.studyin.co.kr/static/media/opengraph.ab00610caebb0295fdce.png"/><meta property="og:url" content="https://www.studyin.co.kr"/><meta property="og:site_name" content="스터디인"/><meta name="twitter:title" content="스터디인"/><meta name="twitter:description" content="지역 기반 개발 스터디 그룹 모집, 생성, 네트워크 웹/앱 서비스"/><meta name="twitter:image" content="https://www.studyin.co.kr/static/media/opengraph.ab00610caebb0295fdce.png"/><link rel="manifest" href="./manifest.json"/><script defer="defer" src="/static/js/main.6e50c99c.js"></script><link href="/static/css/main.efac59f0.css" rel="stylesheet"></head><body><div id="root"></div></body></html>
+
+
+https://www.studyin.co.kr/static/js/main.6e50c99c.js
+=> 이점 : 난독화를 통해 소스코드를 가져갈 수 없게
+=>         최적화(필요한 패키지들만 패키징 등)
+
+=> 단점 : 배포할 때 묶어주는 시간(이런 시간이 개발자에겐 소중한 시간)
+             => CI/CD라는 자동 배포 시스템 구축
+             => SEO(검색엔진 최적화)가 매우 큰 단점이었으나 요즘 크롤링 엔진에서는 라이브 크롤링을 합니다.
+
+
+어뷰징 : 오용하는 분들
