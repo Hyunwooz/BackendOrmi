@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .contentsBox{
+            border: 1px solid rgb(202, 201, 201);
+            border-radius: 3%;
+            width: 350px;
+            padding: 0;
+        }
+        .studyStatus,
+        .studyStatus_Complete {
+            color: rgb(87, 77, 233);
+            padding: 10px 15px 10px 15px;
+            font-size: 20px;
+            font-weight: 600;
+            border-bottom: 1px solid rgb(202, 201, 201);
+        }
+
+        .studyStatus i,
+        .studyStatus_Complete i {
+            margin-right: 12px;
+        }
+
+        .studyStatus_Complete{
+            color: rgb(235, 80, 80);
+        }
+
+        .imgBox {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 350px;
+        }
+        .imgBox i {
+            position: absolute;
+            top: auto;
+            right: 10px;
+            bottom: 10px;
+            left: auto;
+            background-color: white;
+            border: solid 1px rgb(122, 121, 121);
+            border-radius: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 35px;
+            height: 35px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .fa-solid.fa-heart.On {
+            color: red;
+        }
+
+        .thumbnail {
+            width: 100%;    
+        }
+        .description {
+            border-top: 1px solid rgb(202, 201, 201);
+            padding: 10px;
+            height: 140px;
+        }
+        .difficultyBox {
+            display: flex;
+        }
+        .difficulty {
+            margin-top: 5px;
+            margin-right: 10px;
+            font-size: 17px;
+            display: flex;
+            padding-left: 10px;
+            padding-right: 10px;
+            height: 30px;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid rgb(90, 90, 90);
+            border-radius: 20px;
+            color: rgb(90, 90, 90);
+        }
+
+        .difficulty.On {
+            background-color: slateblue;
+            color: white;
+        }
+
+        .title {
+            margin-top: 2px;
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <script src="data2.js"></script>
+    <script>
+        s = ''
+        for (const i of data) {
+            let studyStatus_ClassName = 'studyStatus';
+            if (i.study_status.id == 4){
+                studyStatus_ClassName = 'studyStatus_Complete'
+            } 
+            s += `
+            <div class="contentsBox">
+                <div class="${studyStatus_ClassName}"><i class="fa-solid fa-volume-high"></i>${i.study_status.name}</div>
+                <div class="imgBox">
+                    <i class='fa-regular fa-heart'></i>
+                    <img class="thumbnail" src="${i.thumbnail}" alt="">
+                </div>
+                <div class="description">
+                    <div class='difficultyBox'>
+                        <p class="difficulty">${i.subject.name}</p>
+                        <p class="difficulty">${i.difficulty.name}</p>
+                    </div>
+                    <h2 class="title">${i.title}</h2>
+                </div>
+            </div>
+            `
+        }
+        
+        document.querySelector('body').innerHTML = s;
+
+        // icon 클릭시 하트색 채워지기
+
+        const heart_Icon = document.querySelectorAll('i')
+
+        const fill_heart = (event) => {
+            const heart = event.target;
+            if (heart.classList == 'fa-solid fa-heart On') {
+                heart.classList = 'fa-regular fa-heart'
+            } else {
+                heart.classList = 'fa-solid fa-heart On'
+            }
+        }
+        heart_Icon.forEach((btn) =>{
+            btn.addEventListener("click", fill_heart);
+        })
+    </script>
+</body>
+</html>

@@ -45,14 +45,6 @@
             flex-wrap: wrap;
         }
         
-        .productName {
-            display: block;
-            height: 75px;
-            margin-bottom: 0;
-        }
-        #svg_clicked {
-            fill:red;
-        }
     </style>
 </head>
 <body>
@@ -79,18 +71,6 @@
             `
         }
         document.querySelector('body').innerHTML = s;
-    </script>
-    <script>
-        const svgs = document.querySelectorAll('.svgHeart')
-
-        const func = (event) => {
-            const svg = event.target;
-            console.log(svg)
-            svg.id = "svg_clicked"
-        }
-        svgs.forEach((btn) => {
-            btn.addEventListener("click", func);
-        });
     </script>
 </body>
 </html>
