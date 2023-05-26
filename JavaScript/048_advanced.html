@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <style>
+            main {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            input {
+                display: block;
+                width: 300px;
+                height: 30px;
+                margin-bottom: 10px;
+            }
+
+            textarea {
+                display: block;
+                width: 300px;
+                height: 300px;
+                margin-bottom: 10px;
+            }
+
+            button {
+                display: block;
+                width: 306px;
+                height: 30px;
+            }
+
+            #item_container {
+                margin-top: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <section>
+                <input type="text" name="" id="title" />
+                <textarea name="" id="content" cols="30" rows="10"></textarea>
+                <button onclick="saveNote()">메모</button>
+            </section>
+            <section id="display"></section>
+        </main>
+        <script>
+            let allMemo = JSON.parse(localStorage.getItem("allMemo"));
+            allMemo = allMemo ?? [];
+            render();
+
+            function saveNote() {
+                const title = document.getElementById("title").value;
+                const content = document.getElementById("content").value;
+
+                allMemo.push({ title, content, len: allMemo.length });
+
+                localStorage.setItem("allMemo", JSON.stringify(allMemo));
+
+                render();
+            }
+
+            function render() {
+                const display = document.getElementById("display");
+                display.innerHTML = "";
+
+                for (const item of allMemo) {
+                    const saveContainer = document.createElement("div");
+                    const saveTitle = document.createElement("h2");
+                    const saveContent = document.createElement("p");
+                    const saveId = document.createElement("p");
+                    const deleteMemoBtn = document.createElement("button");
+                    const updateMemoBtn = document.createElement("button");
+                    saveContainer.id = 'item_container'
+
+                    saveTitle.textContent = item.title;
+                    saveContent.textContent = item.content;
+                    saveId.textContent = item.len + 1;
+                    deleteMemoBtn.textContent = "삭제";
+                    deleteMemoBtn.setAttribute("id", item.len);
+                    deleteMemoBtn.setAttribute("onclick", "remove()");
+                    updateMemoBtn.textContent = "수정";
+                    updateMemoBtn.setAttribute("id", item.len);
+                    updateMemoBtn.setAttribute("onclick", "update()");
+
+                    saveContainer.appendChild(saveId);
+                    saveContainer.appendChild(saveTitle);
+                    saveContainer.appendChild(saveContent);
+                    saveContainer.appendChild(updateMemoBtn);
+                    saveContainer.appendChild(deleteMemoBtn);
+                    display.append(saveContainer);
+                }
+            }
+
+            function remove() {
+                const idx = allMemo.find(
+                    (item) => item.len == event.srcElement.id
+                );
+                if (idx) {
+                    allMemo.splice(
+                        allMemo.findIndex((item) => item.len == idx.len),
+                        1
+                    );
+                }
+                localStorage.setItem("allMemo", JSON.stringify(allMemo));
+                render();
+            }
+
+            function updateData() {
+                const title = document.getElementById("update_title").value;
+                const content = document.getElementById("update_Content").value;
+                const idx = event.target.id
+                if (idx) {
+                    allMemo[idx] = { title, content, len: parseInt(event.target.id) }
+                }
+
+                localStorage.setItem("allMemo", JSON.stringify(allMemo));
+                render();
+            }
+
+            function update() {
+                const idx = allMemo.find(
+                    (item) => item.len == event.srcElement.id
+                );
+
+                const updataSection = event.target.parentNode
+                updataSection.innerHTML = ''
+
+                const udateTitle = document.createElement("input");
+                const udateContent = document.createElement("textarea");
+                const saveMemoBtn = document.createElement("button");
+
+                udateTitle.type = 'text'
+                udateTitle.id = 'update_title'
+                udateTitle.value = idx.title;
+                udateTitle.innerText = idx.title;
+
+                udateContent.id = 'update_Content'
+                udateContent.cols = '30'
+                udateContent.rows = '10'
+                udateContent.innerText = idx.content;
+
+                saveMemoBtn.textContent = "수정 완료";
+                saveMemoBtn.setAttribute("id", idx.len);
+                saveMemoBtn.setAttribute("onclick", "updateData()");
+
+                updataSection.appendChild(udateTitle);
+                updataSection.appendChild(udateContent);
+                updataSection.appendChild(saveMemoBtn);
+                
+            }
+
+        </script>
+    </body>
+</html>
