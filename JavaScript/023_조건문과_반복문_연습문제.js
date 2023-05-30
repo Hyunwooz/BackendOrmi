@@ -1,3 +1,13 @@
+// 중급자 분들은 보세요.
+const zip = (a, b) => a.map((v, i) => [v, b[i]])
+const map = (func, iter) => {
+    result = []
+    for (const i of iter) {
+        result.push(func(i))
+    }
+    return result
+}
+
 // 8번
 // https://codingdojang.com/scode/393?answer_mode=hide
 
