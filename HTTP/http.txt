@@ -1,0 +1,56 @@
+요청과 응답 
+
+Protocol(프로토콜) : 약속
+
+- 데이터가 전송되는 방식을 결정하는 규약입니다.
+- 송/수신자 사이의 합의를 통해 ‘데이터 포맷은 이렇게, 오류제어는 이렇게 해서 데이터를 주고받자!’와 같이 서로 통신할 때 이해할 수 있는 규칙을 만든 것을 의미합니다.
+
+=====================
+
+여러 프로토콜 중 1가지인
+
+HTTP에 대해 배워보자
+
+HTTP
+: 인터넷 상에서 데이터를 주고받을 때 사용하는 프로토콜 
+통신마다 독립적으로 관리
+
+Start Line
+HTTP Header
+(blank line)
+Http body
+
+==============================
+                where   |   How 
+HTTP Req    |   Url     |   요청 메서드 이용 (Get Post Put Delete)
+HTTP Res    |   요청을 한 곳    |   응답 코드 + 응답 body
+
+Req - Methods
+
+Get : 데이터 조회 요청 , 요청 정보가 URL에 포함
+Post : 데이터 생성 요청 , 요청 정보가 URL에 불포함 . 요청 정보가 Body에 포함
+Put : 데이터 수정 요청 (덮어쓰기), 요청 정보가 URL에 불포함 , 요청 정보가 Body에 포함
+Delete : 데이터 삭제 요청
+
+================================
+
+HTTP(평문) : 보안 기능이 없음
+
+HTTPS > 보안 기능을 넣음
+TLS, SSL (암호화 과정)
+
+암호화
+평문 > 암호문
+
+복호화
+암호문 > 평문
+
+================================
+
+Client, Server
+Request, Response
+HTTP/HTTPS
+Browser, Rendering
+DNS
+URL
+Wireshark
