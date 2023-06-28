@@ -1,5 +1,7 @@
 ## SQL 기본 구문 정리
 
+### 기본
+
 ```sql
 	-- select
 	select 식
@@ -34,8 +36,11 @@
 	select email from users;
 
 	select id, first_name, last_name, concat(first_name,' ', last_name), email, country from "users";
+```
 
-	같지않음 연산자
+### 연산자
+
+```sql
 
 	!= : 같지 않음
     <> : 같지 않음
@@ -93,7 +98,11 @@
 	from order_items
 	where shipped_at IS NULL;
 	where shipped_at IS NOT NULL;
+```
 
+### 내장 함수
+
+```sql
 	-- count 함수는 해당 항목 레코드의 개수를 반환하는 함수입니다.
 	select count(id)
 	from users;
@@ -129,4 +138,36 @@
 	select country, city, count(id)
 	from users
 	group by country, city;
+```
+
+### HAVING, ORDER BY
+
+```sql
+	-- HAVING
+	-- 그룹화된 데이터에 조건을 부여합니다.
+	-- count(id)가 4000이상 인 것
+
+	select
+	country,
+	count(id) as user_count
+	from users
+	group by country
+	having count(id) >= 4000;
+
+	-- ORDER BY
+	-- 오름차순 : ASC(기본, 작은 수에서 큰 수로)생략 가능
+	-- 내림차순 : DESC(큰 수에서 작은 수로)
+	select *
+	from users
+	order by age;
+
+	select *
+	from users
+	order by age desc, first_name;
+
+	select *
+	from users
+	order by created_at desc
+	limit 10
+
 ```
