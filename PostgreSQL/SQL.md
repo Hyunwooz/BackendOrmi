@@ -606,3 +606,109 @@
 -   분석 데이터
     -   분석데이터는 트랜젝션 데이터에 대한 계산 또는 분석을 통해 생성되는 데이터입니다.
     -   통계 데이터
+
+### UNION
+
+```sql
+	-- UNION(합집합)
+	-- UNION은 두 결과 집합의 결과를 결합하고 중복을 제거합니다.
+	-- union all은 중복 행을 제거하지 않습니다.
+
+	all : 모든 결과 확인
+
+	select * from weniv_user as user1
+	UNION ALL
+	select * from weniv_user3 as user3
+
+	distinct : 중복 제거
+
+	select * from weniv_user as user1
+	UNION DISTINCT
+	select * from weniv_user3 as user3
+
+	-- INTERSECT(교집합)
+
+	-- INTERSECT는 두 결과 집합 모두에 나타나는 행만 반환합니다.
+
+	select * from weniv_user as user1
+	INTERSECT DISTINCT
+	select * from weniv_user3 as user3
+
+	-- EXCEPT(차집합, A-B)
+
+	-- EXCEPT 첫 번째 결과 집합에는 나타나지만 두 번째 결과 집합에는 나타나지 않는 행만 반환합니다.
+
+	select * from weniv_user as user1
+	EXCEPT DISTINCT
+	select * from weniv_user3 as user3
+
+	연도별 회원가입자수와 전체 회원가입자수 합계를 함께 보여주기
+
+	select
+	CAST(extract(year from created_at) AS TEXT) as year,
+	count(id) as user_count
+	from users
+	group by year
+	UNION ALL
+	select
+	'TOTAL' as year,
+	count(id) as user_count
+	from users
+	order by year
+```
+
+### 서브쿼리
+
+```sql
+	-- 서브쿼리(Sub Query)
+	서브쿼리는 다른 SQL문 안에 중첩된 SELECT 문입니다.
+
+	국가가  ‘Brasil’인 유저의 주문정보(orders)를 조회 하는 쿼리입니다.
+	orders를 조회하는 select문의 where절 안에서
+	user의 국가가 ‘Brasil’인 id를 조회하는 쿼리를 하위로 넣어서 실행하였습니다.
+
+	select *
+	from orders
+	where user_id in (
+		select id
+		from users
+		where country = 'Brasil'
+	)
+
+	-- WITH ( Common Table Expressions)
+	with 절은 쿼리 내에서 임시 결과를 정의하고 사용합니다.
+
+	주요 사용 목적은 복잡한 추출 과정을 분할하여 단계적으로 처리하면서 전체 데이터 추출과정을 단순화시키는 것 입니다.
+
+	WITH user_data AS (select id from users)
+	select * from user_data
+
+	-- 1) user_data CTE(유사 테이블)을 정의합니다. 내용은 users의 id값을 조회하는 서브쿼리입니다.
+	-- 2) user_data 로 부터 데이터를 조회 합니다.
+
+	-- 유저별 이름과 주문수, 이벤트수 정보 조회
+
+	WITH user_order_counts AS (
+		select user_id, count(order_id) as order_count
+		from orders
+		group by user_id
+	), user_event_counts AS (
+		select user_id, count(id) as event_count
+		from events
+		group by user_id
+	)
+	select
+		a.id,
+		a.first_name,
+		a.last_name,
+		b.order_count,
+		c.event_count
+	from users a
+	left join user_order_counts b on a.id = b.user_id
+	left join user_event_counts c on a.id = c.user_id
+	order by a.id
+
+	-- 1) user_order_counts 라는 유사 테이블을 정의합니다. 내용은 주문테이블로 부터 유저아이디와 유저의 주문수를 조회합니다.
+	-- 2) user_event_counts 라는 유사 테이블을 정의합니다. 내용은 이벤트테이블로 부터 유저아이디와 유저의 이벤트수를 조회합니다.
+	-- 3) users 테이블, user_order_counts 유사 테이블, user_event_counts 유사 테이블을 이용하여 유저의 이름, 주문수, 이벤트수를 조회합니다.
+```
